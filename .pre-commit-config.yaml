@@ -1,0 +1,19 @@
+repos:
+  # Hooks básicos de higiene
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        exclude: ^bankchurn-api/model-pkg/.*\.whl$
+
+  # Python: Ruff (lint) + Ruff Format (formato)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.3
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
